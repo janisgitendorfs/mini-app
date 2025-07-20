@@ -24,10 +24,10 @@ export const IndexPage: FC = () => {
 };
 
 function getMobilePlatform() {
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const userAgent = navigator.userAgent || navigator.vendor;
 
   // iOS detection
-  if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+  if (/iPad|iPhone|iPod/.test(userAgent)) {
     return 'ios';
   }
 
