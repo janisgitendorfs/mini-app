@@ -4,9 +4,14 @@ import type { FC } from 'react';
 import { Link } from '@/components/Link/Link.tsx';
 import { Page } from '@/components/Page.tsx';
 
+import { retrieveLaunchParams } from '@telegram-apps/sdk';
+
 export const IndexPage: FC = () => {
   const platform = getMobilePlatform();
   const destination = platform === 'ios' ? 'https://apps.apple.com/us/app/age-of-sails/id6738692514' : 'https://play.google.com/store/apps/details?id=com.street.bunny';
+
+  const launchParams = retrieveLaunchParams();
+  const user = launchParams?.tgWebAppData?.user;
 
   return (
     <Page back={false}>
@@ -14,7 +19,7 @@ export const IndexPage: FC = () => {
         <Section header="Hello">
           <Link to={destination} target="_blank">
             <Cell subtitle="Determined by user agent.">
-                <span className="text-bold">Platform: {platform}</span>
+                <span className="text-bold">Platform: {platform} | User ID: {user?.id} ({user?.first_name} {user?.last_name})</span>
             </Cell>
           </Link>
         </Section>
