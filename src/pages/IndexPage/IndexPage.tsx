@@ -18,6 +18,13 @@ export const IndexPage: FC = () => {
             </Cell>
           </Link>
         </Section>
+        <Section>
+          <Link to="/ball">
+            <Cell>
+              Go to [Ball Page]
+            </Cell>
+          </Link>
+        </Section>
       </List>
     </Page>
   );
