@@ -1,5 +1,6 @@
 ﻿import { useEffect, useRef } from 'react';
 import type { FC } from 'react';
+import { Page } from '@/components/Page.tsx';
 
 export const BallPage: FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -54,11 +55,13 @@ export const BallPage: FC = () => {
     }, []);
 
     return (
-        <canvas
-            ref={canvasRef}
-            width={300}
-            height={200}
-            style={{ border: '1px solid black', display: 'block', margin: '0 auto' }}
-        />
-    );
+        <Page back={true}>
+            <canvas
+                ref={canvasRef}
+                width={300}
+                height={200}
+                style={{ border: '1px solid black', display: 'block', margin: '0 auto' }}
+            />
+        </Page>
+    )
 };
